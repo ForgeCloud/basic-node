@@ -31,9 +31,9 @@ build:
     - $MOD_LOC/istanbul --include-all-sources cover -root "$SHIPPABLE_REPO_DIR/routes" $SHIPPABLE_REPO_DIR/node_modules/mocha/bin/_mocha -- -R spec-xunit-file --recursive "$TESTS_LOC_DIR/**/*.spec.js"
     - $MOD_LOC/istanbul report cobertura --dir $CODE_COVERAGE_DIR
     - popd
-    - docker build -t gcr.io/fr-test-combined/shippable-test:$BRANCH.BUILD_NUMBER .
+    - docker build -t gcr.io/fr-test-combined/shippable-test:$BRANCH .
   post_ci:
-    - docker push gcr.io/fr-test-combined/shippable-test:$BRANCH.BUILD_NUMBER
+    - docker push gcr.io/fr-test-combined/shippable-test:$BRANCH
 
 
 # Integrations are used to connect external resources to CI
